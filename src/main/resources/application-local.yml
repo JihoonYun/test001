@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    url: jdbc:oracle:thin:@localhost:1521/XEPDB1
+    username: local_user
+    password: local_password
+    driver-class-name: oracle.jdbc.OracleDriver
+
+logging:
+  level:
+    com.example.rpa: DEBUG

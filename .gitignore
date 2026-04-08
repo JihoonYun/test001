@@ -1,0 +1,25 @@
+# Maven / Java build outputs
+target/
+*.class
+*.log
+
+# Local runtime outputs
+output/
+
+# Local Maven installation and downloaded tools
+tools/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+
+# Environment and secrets
+.env
+.env.*
+
+# Maven wrapper temporary files if added later
+.mvn/wrapper/maven-wrapper.jar
