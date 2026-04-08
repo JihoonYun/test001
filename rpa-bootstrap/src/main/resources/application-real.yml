@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    url: ${REAL_DB_URL}
+    username: ${REAL_DB_USERNAME}
+    password: ${REAL_DB_PASSWORD}
+    driver-class-name: oracle.jdbc.OracleDriver
+  jpa:
+    hibernate:
+      ddl-auto: none
+
+rpa:
+  mattermost:
+    base-url: ${REAL_MATTERMOST_BASE_URL}
+    token: ${REAL_MATTERMOST_TOKEN}
+    channel-id: ${REAL_MATTERMOST_CHANNEL_ID}
+
+logging:
+  level:
+    com.example.rpa: INFO

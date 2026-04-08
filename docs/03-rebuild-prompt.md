@@ -19,8 +19,9 @@ IDE는 IntelliJ 기준으로 바로 열 수 있게 표준 Maven 프로젝트 구
    - adapter.out.excel
    - adapter.out.mattermost
 
-2. 이 프로그램은 크론 기반으로 주기 실행되는 배치다.
-   - Scheduler가 시작점을 담당
+2. 이 프로그램은 JobPass 같은 외부 배치 스케줄러에 의해 실행되는 배치다.
+   - 프로그램 내부에는 스케줄러를 두지 말 것
+   - 외부 실행 기준으로 한 번 실행되면 한 번의 배치만 처리할 것
    - Oracle DB를 JPA 기반으로 여러 번 조회
    - 조회 결과를 정리해서 다중 시트 엑셀 양식에 채움
    - 생성된 파일을 Mattermost 서버 API로 업로드
@@ -34,12 +35,10 @@ IDE는 IntelliJ 기준으로 바로 열 수 있게 표준 Maven 프로젝트 구
 
 4. 반드시 생성할 주요 클래스는 아래 이름을 그대로 사용해줘.
    - RpaApplication
-   - SchedulingConfig
    - JpaConfig
    - MattermostProperties
    - ExcelProperties
    - BatchProperties
-   - ReportBatchScheduler
    - GenerateAndSendReportUseCase
    - GenerateAndSendReportService
    - LoadPrimaryDataPort
@@ -87,7 +86,7 @@ IDE는 IntelliJ 기준으로 바로 열 수 있게 표준 Maven 프로젝트 구
 7. 구현 규칙:
    - 엔티티를 직접 상위 계층에 노출하지 말 것
    - 포트와 어댑터를 명확히 분리할 것
-   - 스케줄러는 유스케이스 호출만 담당할 것
+   - 내부 스케줄러는 만들지 말 것
    - Mattermost 파일 업로드와 메시지 전송을 분리할 것
    - 엑셀 생성은 템플릿 기반, 다중 시트 구조로 설계할 것
    - 로그는 executionId, step, status를 포함하도록 설계할 것
@@ -118,5 +117,5 @@ IDE는 IntelliJ 기준으로 바로 열 수 있게 표준 Maven 프로젝트 구
 - 패키지 구조가 문서와 동일한가
 - 클래스명이 고정 목록과 동일한가
 - 프로파일 파일이 분리되었는가
-- 스케줄러, 포트, 어댑터, 유스케이스 흐름이 분리되었는가
+- 포트, 어댑터, 유스케이스 흐름이 분리되었는가
 - 비즈니스 로직 없이도 구조와 주석만으로 흐름이 이해되는가

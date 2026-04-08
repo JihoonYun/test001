@@ -43,18 +43,13 @@
 
 ### 4.2 설정
 
-- `SchedulingConfig`
 - `JpaConfig`
 - `MattermostProperties`
 - `ExcelProperties`
 - `BatchProperties`
 - `LoggingConstants`
 
-### 4.3 스케줄러
-
-- `ReportBatchScheduler`
-
-### 4.4 애플리케이션 포트
+### 4.3 애플리케이션 포트
 
 - `GenerateAndSendReportUseCase`
 - `LoadPrimaryDataPort`
@@ -64,11 +59,11 @@
 - `UploadMattermostFilePort`
 - `SendMattermostMessagePort`
 
-### 4.5 유스케이스 서비스
+### 4.4 유스케이스 서비스
 
 - `GenerateAndSendReportService`
 
-### 4.6 DTO
+### 4.5 DTO
 
 - `ReportGenerationCommand`
 - `ReportPayload`
@@ -77,7 +72,7 @@
 - `JobExecutionResult`
 - `JobExecutionContext`
 
-### 4.7 영속성
+### 4.6 영속성
 
 - `SampleSourceEntity`
 - `SampleSourceJpaRepository`
@@ -85,7 +80,7 @@
 - `SecondaryDataPersistenceAdapter`
 - `TertiaryDataPersistenceAdapter`
 
-### 4.8 엑셀
+### 4.7 엑셀
 
 - `ReportExcelPersistenceAdapter`
 - `ExcelTemplateLoader`
@@ -93,13 +88,13 @@
 - `MultiSheetReportWriter`
 - `SheetCoordinateConstants`
 
-### 4.9 Mattermost
+### 4.8 Mattermost
 
 - `MattermostApiClient`
 - `MattermostMessageAdapter`
 - `MattermostFileAdapter`
 
-### 4.10 예외
+### 4.9 예외
 
 - `BaseBusinessException`
 - `DatabaseAccessException`
@@ -159,7 +154,6 @@ spring:
 rpa:
   batch:
     job-name: reportBatchJob
-    cron: "0 0/30 * * * *"
   excel:
     template-path: classpath:templates/excel/report-template.xlsx
     output-directory: ./output
